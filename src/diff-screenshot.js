@@ -24,8 +24,12 @@ const diff = new Blink({
   imageAPath: resolve(argv.pathOld),
   imageBPath: resolve(argv.pathNew),
   imageOutputPath: resolve(argv.target),
-  thresholdType,
-  threshold
+  thresholdType: 'percent',
+  threshold: 0.2,
+  outputMaskRed: 0,
+  outputMaskBlue: 255, // Use blue for highlighting differences
+  createComparison: 'compareLeftToRight',
+  hideShift: false, // Hide anti-aliasing differences - will still determine but not showing it
 });
 
 diff.run((error, result) => {
