@@ -24,7 +24,7 @@ const diff = new Blink({
   imageAPath: resolve(argv.pathOld),
   imageBPath: resolve(argv.pathNew),
   imageOutputPath: resolve(argv.target),
-  thresholdType: 'percent',
+  thresholdType: 'pixel',
   threshold: 0.2,
   outputMaskRed: 0,
   outputMaskBlue: 255, // Use blue for highlighting differences

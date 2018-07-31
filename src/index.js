@@ -59,8 +59,7 @@ function matchScreenshot (name, domainName, pageName, deviceViewPort, options = 
   let path = null;
   cy
     .screenshot(id, {
-      capture: 'fullPage',
-      scale: true,
+      scale: false,
       log: false,
       onAfterScreenshot ($el, props) {
         // Store path of screenshot that has been taken
@@ -109,9 +108,6 @@ function matchScreenshot (name, domainName, pageName, deviceViewPort, options = 
                     `rm "${cypressPaths.SCREENSHOT_FOLDER}/diff/${domainName}/${deviceViewPort}/${fileName}.png"`,
                     { log: false }
                   );
-                }
-                if (!Cypress.config('updateScreenshots')) {
-                  assert.isTrue(matches, 'Screenshots match');
                 }
               });
           } else {
